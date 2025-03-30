@@ -1,72 +1,5 @@
 ```markdown
 # guide
-
-## 始める
-
-### 新しいプロジェクトを作成
-
-```bash
-# Terminal window
-npm create cloudflare@latest
-cd YOUR_PROJECT
-npm i discord-hono
-npm i -D discord-api-types # TypeScript を使うとき
-# npm i -D @types/node # 必要に応じて
-```
-
-リンク先のファイルをコピーする。
-
-*   ディレクトリ `src`
-    *   `index.ts`
-    *   `register.ts`
-*   `.env.example` ファイル名を `.env` に変更
-*   `package.json`
-*   `tsconfig.json` (TypeScript を使うとき)
-
-`package.json` に `type` と `scripts` を加える。
-
-```json
-// package.json
-{
-  "type": "module",
-  "scripts": {
-    "register": "tsc && node --env-file=.env dist/register.js"
-  }
-}
-```
-
-## Discord bot をセットアップ - Discord ドキュメント
-
-1.  [Discord Developer Portal](https://discord.com/developers/applications) のダッシュボード で新しいアプリを作成する。
-2.  `APPLICATION ID`、`PUBLIC KEY`、`TOKEN` をコピーして、`.env` ファイルへ貼り付ける。
-
-## シークレットを保存する。
-
-```bash
-# Terminal window
-npx wrangler secret put DISCORD_APPLICATION_ID
-npx wrangler secret put DISCORD_PUBLIC_KEY
-npx wrangler secret put DISCORD_TOKEN
-```
-
-## コマンドの登録とデプロイ。
-
-```bash
-# Terminal window
-npm run register
-npm run deploy
-```
-
-## エンドポイントURLを設定。
-
-`INTERACTIONS ENDPOINT URL` に `https://YOUR_PROJECT.YOUR_DOMAIN.workers.dev` を入力する。
-
-## ボットを招待する
-
-1.  Discord Developer Portal のダッシュボード から招待URLを作成する。
-2.  YOUR\_APP > OAuth2 タブ > OAuth2 URL Generator > チェック SCOPES: `bot` > URL Copy
-3.  ブラウザにURLを貼り付ける。
-
 # 特徴
 
 *   **直感的なAPI** - Honoに影響を受けており、馴染みやすく使いやすいインターフェースを提供
@@ -264,7 +197,7 @@ addEventListener('fetch', event =>
 )
 ```
 
-# interactions
+# Interactions
 
 ## `DiscordHono`
 
@@ -277,7 +210,7 @@ app.command('ping', c => c.res('Pong!!'))
 export default app
 ```
 
-## `.command()`
+### `.command()`
 
 ```typescript
 import { DiscordHono, Command } from 'discord-hono'
@@ -296,7 +229,7 @@ const app = new DiscordHono()
 
 第1引数に `''` を指定すると、キャッチオールパターンとして機能します。
 
-## `.component()`
+### `.component()`
 
 ```typescript
 import { DiscordHono, Components, Button } from 'discord-hono'
@@ -320,7 +253,7 @@ const app = new DiscordHono()
 
 第1引数に `''` を指定すると、キャッチオールパターンとして機能します。
 
-## `.autocomplete()`
+### `.autocomplete()`
 
 ```typescript
 import { DiscordHono, Command, Option, Autocomplete } from 'discord-hono'
@@ -351,7 +284,7 @@ const app = new DiscordHono().autocomplete(
 
 `.autocomplete()` の第3引数は `.command()` の第2引数と同じです。
 
-## `.modal()`
+### `.modal()`
 
 ```typescript
 import { DiscordHono, Modal, TextInput } from 'discord-hono'
@@ -372,7 +305,7 @@ const app = new DiscordHono()
 
 第1引数に `''` を指定すると、キャッチオールパターンとして機能します。
 
-## `.cron()`
+### `.cron()`
 
 ```typescript
 import { DiscordHono, _channels_$_messages } from 'discord-hono'
@@ -404,12 +337,12 @@ crons = [ "0 * * * *", "0 0 * * *" ]
 
 第1引数に `''` を指定すると、キャッチオールパターンとして機能します。
 
-## `.fetch()`
+### `.fetch()`
 
 こちらを参照してください: [Hono - Fetch](https://hono.dev/api/hono#fetch)
 できるだけ Hono の `fetch()` と同じようになるようにしています。
 
-## `.scheduled()`
+### `.scheduled()`
 
 `export default app` を使っていれば、`.scheduled()` は含まれています。 (Cloudflare Workers の Scheduled Handler)
 
@@ -455,7 +388,7 @@ const app = new DiscordHono({
 })
 ```
 
-## Context (`c`)
+## Context
 
 ```typescript
 import { DiscordHono } from 'discord-hono'
