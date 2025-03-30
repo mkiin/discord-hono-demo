@@ -14,6 +14,9 @@ importers:
       discord-hono:
         specifier: ^0.16.4
         version: 0.16.4
+      dotenv:
+        specifier: ^16.4.7
+        version: 16.4.7
       hono:
         specifier: ^4.7.5
         version: 4.7.5
@@ -430,6 +433,10 @@ packages:
     resolution: {integrity: sha512-r6efrXZ50Wn3uVYdySH2yHrx5tOhQGb2Ta1ITt6YyGKAPRiL4Sg/Xxew7aipkQdFpOTKaqc9VIVzAcTu6Wf48Q==}
     engines: {node: '>=18.4.0'}
 
+  dotenv@16.4.7:
+    resolution: {integrity: sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==}
+    engines: {node: '>=12'}
+
   esbuild@0.24.2:
     resolution: {integrity: sha512-+9egpBW8I3CD5XPe0n6BfT5fxLzxrlDzqydF3aviG+9ni1lDC/OvMHcxqEFV0+LANZG5R1bFMWfUrjVsdwxJvA==}
     engines: {node: '>=18'}
@@ -839,6 +846,8 @@ snapshots:
   discord-api-types@0.37.119: {}
 
   discord-hono@0.16.4: {}
+
+  dotenv@16.4.7: {}
 
   esbuild@0.24.2:
     optionalDependencies:

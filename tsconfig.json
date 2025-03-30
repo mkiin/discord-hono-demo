@@ -11,8 +11,7 @@
     "module": "es2022",
     "moduleResolution": "Bundler",
     "types": [
-      "@cloudflare/workers-types/2023-07-01",
-      "node"
+      "@cloudflare/workers-types/2023-07-01"
     ],
     "resolveJsonModule": true,
     /* JavaScript Support */

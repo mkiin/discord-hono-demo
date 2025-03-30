@@ -17,7 +17,7 @@
 ## 実装上の注意
 - 各種パッケージをインストールする必要がある場合、必ずユーザに許可を取ってください
 - 使用するコアパッケージはdocs/*以下にあるファイルを参照してから実装してください。あなたが持つ知識のみでかいけつを図らないこと。
-- また、docs/ディレクトリ内に、必要な情報がない場合、web検索を使用してください。
+- また、必要に応じてパッケージ、ライブラリの使い方をweb検索を使用してください。下に使用するパッケージの使い方をまとめたURLを示します。必ずそのURLを用いて調べてください。
 
 ## 期待する回答
 - 実装コードは省略せず、完全な形で提供
@@ -31,3 +31,36 @@ docs/   # ドキュメント置き場
 src/    # プロジェクトのソース置き場
 test/   # テストコード
 ```
+
+## 想定しているもの
+- discordサーバー上で特定のスラッシュコマンドを使用することでaiに対してテキスト送信をして返信が返ってくる。
+- 同様に、特定のスラッシュコマンドにより、画像生成、google検索をできるようにする。
+
+## 実装想定
+- aiのテキスト周りの処理はai-sdkにより行う。
+- discordのスラッシュコマンドやレスポンス周りの処理はdiscord-honoパッケージを使用する。
+- 以下に私が調べた際に参考にしたgithubリポジトリのURLを置くので参照してください。
+
+## 現在の段階
+- discord hono のセットアップが終了している。
+- cloudflareに環境変数のセットが終了している。
+
+## 参考実装
+> https://github.com/mizchi/discord-claude-bot/tree/main
+  - ランタイム：deno
+  - hosting style : cloudflare workers
+  - aiとのやり取り : ai-sdk
+  - discord周り : discord-interactions
+  - docs/discord-bot-claud-bot.mdに全ファイルが記載されています。
+
+> https://github.com/luisfun/discord-bot-cloudflare-ai
+ - ランタイム : cloudflare
+ - hosting style cloudflare workers
+ - aiとのやり取り : @cloudflare/ai
+ - discord周り : discord hono
+ - discord-bot-cloudflare-ai-doc.mdに全ファイルが記載されています。
+
+
+## パッケージ、ライブラリの使い方URL
+- ai-sdk : https://sdk.vercel.ai/llms.txt
+- discord hono : docs/discord-hono-doc.md内のURL
