@@ -1,6 +1,3 @@
 name = "disc-hono-demo"
 main = "src/index.ts"
 compatibility_date = "2025-03-27"
-
-[limits]
-cpu_ms = 10

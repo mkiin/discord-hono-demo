@@ -1,4 +1,4 @@
-import { MODEL_MAPPINGS } from "./constants";
+import { MODEL_MAPPINGS } from "./constants.js";
 
 export type Env = {
   Bindings: {
