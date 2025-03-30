@@ -1,15 +1,23 @@
 {
-	"name": "discord-hono-demo",
+	"name": "disc-hono-demo",
+	"type": "module",
 	"scripts": {
 		"dev": "wrangler dev",
 		"deploy": "wrangler deploy --minify",
-		"cf-typegen": "wrangler types --env-interface CloudflareBindings"
+		"cf-typegen": "wrangler types --env-interface CloudflareBindings",
+		"register": "tsc && node --env-file=.env dist/register.js"
 	},
 	"dependencies": {
-		"hono": "^4.7.5"
+		"@ai-sdk/google": "^1.2.3",
+		"discord-hono": "^0.16.4",
+		"hono": "^4.7.5",
+		"typescript": "^5.8.2",
+		"zod": "^3.23.8"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20250327.0",
+		"@types/node": "^22.13.14",
+		"discord-api-types": "^0.37.119",
 		"wrangler": "^4.6.0"
 	}
 }
