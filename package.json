@@ -1,5 +1,5 @@
 {
-	"name": "dicord-hono-demo",
+	"name": "discord-hono-demo",
 	"scripts": {
 		"dev": "wrangler dev",
 		"deploy": "wrangler deploy --minify",
