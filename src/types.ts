@@ -1,4 +1,4 @@
-import { MODEL_MAPPINGS } from "./constants.js";
+import type { MODEL_MAPPINGS } from "./constants";
 
 export type Env = {
 	Bindings: {
@@ -7,7 +7,7 @@ export type Env = {
 	};
 };
 
-export type CommandKey = "text" | "image" | "image-genshin" | (string & {});
+export type CommandKey = "chat" | "image" | "image-genshin" | (string & {});
 
 export type ModelMappings = typeof MODEL_MAPPINGS;
 export type TextModels = ModelMappings["text-generation"][number];
