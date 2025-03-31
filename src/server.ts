@@ -25,18 +25,18 @@ import { DiscordHono } from "discord-hono";
 // };
 
 const app = new DiscordHono()
-  .command("chat", (c) => {
-    const text = c.var.prompt as string;
-    return c.res({
-      content: text,
-    });
-  })
-  .command("image", (c) => {
-    const text = c.var.prompt as string;
-    return c.res({
-      content: text,
-    });
-  })
-  .component("delete-self", (c) => c.resDeferUpdate(c.followupDelete));
+	.command("chat", async (c) => {
+		const text = c.var.prompt as string;
+		return c.res({
+			content: text,
+		});
+	})
+	.command("image", (c) => {
+		const text = c.var.prompt as string;
+		return c.res({
+			content: text,
+		});
+	})
+	.component("delete-self", (c) => c.resDeferUpdate(c.followupDelete));
 
 export default app;
