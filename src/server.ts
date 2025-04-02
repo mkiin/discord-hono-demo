@@ -3,6 +3,7 @@ import { type CoreMessage, streamText } from "ai";
 import { DiscordHono } from "discord-hono";
 import { loadHistory, saveHistory } from "./backend";
 import { SYSTEM } from "./constants";
+import { updateMessage } from "./discord_helper";
 import type { BindingsEnv, Env } from "./types";
 
 const app = new DiscordHono<Env>().command("chat", (c) =>
@@ -69,12 +70,6 @@ const runChatStreamInBackGround = async (
 	};
 
 	try {
-		// // 初期メッセージを作成
-		// await createMessage(`${prefixed}\n\n...`, {
-		// 	token: interaction_token,
-		// 	appId: env.DISCORD_APPLICATION_ID,
-		// });
-
 		// Geminiモデルを使用してストリーミングを開始
 		const { fullStream } = await streamText({
 			model: gemini(model, {
@@ -153,12 +148,12 @@ const runChatStreamInBackGround = async (
 	} catch (e) {
 		console.error(e);
 		onStreamEnd();
-		// if (e instanceof Error) {
-		// 	await updateMessage(`内部エラー: ${e.stack}`, {
-		// 		token: interaction_token,
-		// 		appId: env.DISCORD_APPLICATION_ID,
-		// 	});
-		// }
+		if (e instanceof Error) {
+			await updateMessage(`内部エラー: ${e.stack}`, {
+				token: interaction_token,
+				appId: env.DISCORD_APPLICATION_ID,
+			});
+		}
 	}
 };
 

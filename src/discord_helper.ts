@@ -1,5 +1,5 @@
 // Discord APIのメッセージ作成・更新関数
-async function createMessage(
+export async function createMessage(
 	content: string,
 	options: { token: string; appId: string },
 ) {
@@ -14,7 +14,7 @@ async function createMessage(
 	});
 }
 
-async function updateMessage(
+export async function updateMessage(
 	content: string,
 	options: { token: string; appId: string },
 ) {
