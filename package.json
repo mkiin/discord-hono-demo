@@ -1,11 +1,10 @@
 {
 	"name": "disc-hono-demo",
-	"type": "module",
 	"scripts": {
 		"dev": "wrangler dev",
 		"deploy": "wrangler deploy --minify",
 		"format": "biome format --write ./src",
-		"lint": "biome lint ./src",
+		"lint": "biome lint --write ./src",
 		"ngrok": "ngrok http",
 		"cf-typegen": "wrangler types --env-interface CloudflareBindings",
 		"register": "tsx scripts/register.ts"
@@ -14,15 +13,25 @@
 		"discord-hono": "^0.16.4"
 	},
 	"devDependencies": {
-		"@ai-sdk/google": "^1.2.3",
+		"@ai-sdk/google": "^1.2.5",
 		"@biomejs/biome": "^1.9.4",
-		"@cloudflare/workers-types": "^4.20250327.0",
-		"@types/node": "^22.13.14",
+		"@cloudflare/workers-types": "^4.20250402.0",
+		"@types/node": "^22.13.17",
+		"ai": "^4.2.10",
 		"discord-api-types": "^0.37.119",
 		"dotenv": "^16.4.7",
 		"ngrok": "5.0.0-beta.2",
 		"tsx": "^4.19.3",
 		"wrangler": "^4.6.0",
 		"zod": "^3.24.2"
+	},
+	"pnpm": {
+		"ignoredBuiltDependencies": [
+			"@biomejs/biome",
+			"esbuild",
+			"ngrok",
+			"sharp",
+			"workerd"
+		]
 	}
 }

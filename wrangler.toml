@@ -1,3 +1,7 @@
 name = "disc-hono-demo"
 main = "src/server.ts"
 compatibility_date = "2025-03-27"
+
+[[kv_namespaces]]
+binding = "CHAT_HISTORY"
+id = "b4fdf1fc61414a3f8e561085c48a16f0"
